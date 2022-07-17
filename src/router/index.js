@@ -1,14 +1,11 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import HomeView from '@/views/HomeView';
+import GlobalFeed from '@/views/GlobalFeed';
+import YourFeed from '@/views/YourFeed';
+import TagFeed from '@/views/TagFeed';
 import Register from '@/views/Register';
 import Login from '@/views/Login';
 
 const routes = [
-    {
-        path: '/',
-        name: 'home',
-        component: HomeView,
-    },
     {
         path: '/register',
         name: 'register',
@@ -20,19 +17,49 @@ const routes = [
         component: Login,
     },
     {
-        path: '/add-article',
+        path: '/',
+        name: 'globalFeed',
+        component: GlobalFeed,
+    },
+    {
+        path: '/feed',
+        name: 'yourFeed',
+        component: YourFeed,
+    },
+    {
+        path: '/tags/:slug',
+        name: 'tag',
+        component: TagFeed,
+    },
+    {
+        path: '/article/new',
         name: 'createArticle',
-        component: Login,
+        component: GlobalFeed,
+    },
+    {
+        path: '/articles/:slug',
+        name: 'article',
+        component: GlobalFeed,
+    },
+    {
+        path: '/articles/:slug/edit',
+        name: 'editArticle',
+        component: GlobalFeed,
     },
     {
         path: '/settings',
         name: 'settings',
-        component: Login,
+        component: GlobalFeed,
     },
     {
-        path: '/profile',
+        path: '/profiles/:slug',
         name: 'userProfile',
-        component: Login,
+        component: GlobalFeed,
+    },
+    {
+        path: '/profiles/:slug/favorites',
+        name: 'userProfileFavorites',
+        component: GlobalFeed,
     },
 ];
 
